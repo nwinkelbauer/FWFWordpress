@@ -4,7 +4,7 @@ if ( ! post_type_exists( 'videos' ) ):
 
 	add_action('init', 'video_post_type');
 
-	function fund_post_type() {
+	function video_post_type() {
 		$labels = array(
 			'name' => 'Videos',
 			'singular_name' => 'Video',
@@ -34,10 +34,10 @@ if ( ! post_type_exists( 'videos' ) ):
 		register_post_type('videos', $args);
 	}
 
-	add_action('admin_init', 'fund_admin_init');
+	add_action('admin_init', 'video_admin_init');
 
-	function fund_admin_init(){
-		// add_meta_box( 'short', 'Fund short name', 'short_callback', 'funds', 'side', 'low' );
+	function video_admin_init(){
+		add_meta_box( 'url', 'Vimeo ID Code', 'url_callback', 'videos', 'side', 'low' );
 		// add_meta_box( 'code', 'Allocation code', 'code_callback', 'funds', 'side', 'low' );
 		
 		// add_meta_box( 'desc', 'Short description', 'desc_callback', 'funds', 'normal', 'low' );
@@ -54,21 +54,21 @@ if ( ! post_type_exists( 'videos' ) ):
 	// 	global $post;
 	// 	$custom = get_post_custom($post->ID);
 	// 	$short = $custom['short'][0];
-	// 	?><input name="short" value="<?php echo $short ?>" /><?php
+	// 	?><!--<input name="short" value="<?php //echo $short ?>" />--><?php
 	// }
 
 	// function code_callback() {
 	// 	global $post;
 	// 	$custom = get_post_custom($post->ID);
 	// 	$code = $custom['code'][0];
-	// 	?><input name="code" value="<?php echo $code ?>" /><?php
+	// 	?><!--<input name="code" value="<?php //echo $code ?>" />--><?php
 	// }
 
 	// function desc_callback() {
 	// 	global $post;
 	// 	$custom = get_post_custom($post->ID);
 	// 	$desc = $custom['desc'][0];
-	// 	?><textarea name="desc" rows="4" cols="60"><?php echo $desc; ?></textarea><?php
+	// 	?><!--<textarea name="desc" rows="4" cols="60"><?php //echo $desc; ?></textarea>--><?php
 	// }
 
 	// function unit_callback() {
