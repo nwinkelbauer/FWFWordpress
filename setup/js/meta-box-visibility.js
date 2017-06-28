@@ -9,27 +9,35 @@
 
 jQuery(document).ready( function($) {
 
-            /**
-             * Adjust visibility of the meta box at startup
-            */
-            pagePortfolio();
+    /**
+     * Adjust visibility of the meta box at startup
+    */
+    pageAll();
+
+    /**
+     * Live adjustment of the meta box visibility
+    */
+    $('#page_template').live('change', function(){
+        pageAll();
+    }); 
+
+    //show&hide metaboxes on certian pages
+    function pageAll() {
+        // hide your meta box
+        //$('#postimagediv').hide();
+        $('#pageparentdiv label[for=menu_order]').parents('p').eq(0).hide();
+        $('#pageparentdiv input#menu_order').hide();
+        $('#pageparentdiv label[for=parent_id]').parents('p').eq(0).hide();
+        $('#pageparentdiv select#parent_id').hide();
+
+        //call all the template specific ones
+        if($('#page_template').val() == 'templates/page_home.php') {
+            $('#postdivrich').hide();
+        }
+    }  
+
+    
+    
 
 
-            /**
-             * Live adjustment of the meta box visibility
-            */
-            $('#page_template').live('change', function(){
-                pagePortfolio();
-            }); 
-
-            //show&hide metaboxes on the portfolio page
-            function pagePortfolio() {
-                if($('#page_template').val() == 'templates/page_portfolio.php') {
-                    // show the meta box
-                    $('#postimagediv').show();
-                } else {
-                    // hide your meta box
-                    $('#postimagediv').hide();
-                }
-            }                
-        });    
+});    
