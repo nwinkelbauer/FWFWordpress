@@ -27,80 +27,68 @@ if ( ! post_type_exists( 'videos' ) ):
 			'publicly_queryable' => false,
 			'show_ui' => true,
 			'show_in_menu' => true,
+			'taxonomies' => array('category'), //'post_tag' for tags
 			'rewrite' => array('slug' => 'videos', 'with_front' => false),
 			'supports' => array( 'title' , 'editor' , 'thumbnail' )
 		);
 
 		register_post_type('videos', $args);
+
+		if (!term_exists( 'Commercial', 'category') ){
+	        wp_insert_term( 'Commercial', 'category' );
+	    }
+		if (!term_exists( 'Television', 'category') ){
+	        wp_insert_term( 'Television', 'category' );
+	    }
+		if (!term_exists( 'Philanthropy', 'category') ){
+	        wp_insert_term( 'Philanthropy', 'category' );
+	    }
 	}
 
 	add_action('admin_init', 'video_admin_init');
 
 	function video_admin_init(){
-		add_meta_box( 'url', 'Vimeo ID Code', 'url_callback', 'videos', 'side', 'low' );
-		// add_meta_box( 'code', 'Allocation code', 'code_callback', 'funds', 'side', 'low' );
+		add_meta_box( 'url', 'Vimeo ID Code', 'url_callback', 'videos', 'side', 'default' );
+		add_meta_box( 'date', 'Year Created', 'date_callback', 'videos', 'side', 'default' );
+		add_meta_box( 'client', 'Client', 'client_callback', 'videos', 'side', 'default' );
+
 		
-		// add_meta_box( 'desc', 'Short description', 'desc_callback', 'funds', 'normal', 'low' );
 
-		// add_meta_box( 'unit', 'Associated Unit', 'unit_callback', 'funds', 'normal', 'low' );
-
-		// remove_meta_box( 'causesdiv', 'funds', 'side' );
-		// remove_meta_box( 'prioritiesdiv', 'funds', 'side' );
-		// add_meta_box( 'causesdiv', 'Causes', 'post_categories_meta_box', 'funds', 'normal', 'low', array( 'taxonomy' => 'causes' ) );
-		// add_meta_box( 'prioritiesdiv', 'Funding Priorities', 'post_categories_meta_box', 'funds', 'normal', 'low', array( 'taxonomy' => 'priorities' ) );
+		remove_meta_box( 'categorydiv', 'videos', 'side' );
+		add_meta_box( 'categorydiv', 'Category', 'post_categories_meta_box', 'videos', 'normal', 'low', array( 'taxonomy' => 'category' ) );
+		
+		add_action('save_post', 'save_video_details');
 	}
 
-	// function short_callback() {
-	// 	global $post;
-	// 	$custom = get_post_custom($post->ID);
-	// 	$short = $custom['short'][0];
-	// 	?><!--<input name="short" value="<?php //echo $short ?>" />--><?php
-	// }
+	function url_callback() {
+		global $post;
+		$custom = get_post_custom($post->ID);
+		$url = $custom['url'][0];
+		?><input name="url" value="<?php echo $url ?>" /><?php
+	}
 
-	// function code_callback() {
-	// 	global $post;
-	// 	$custom = get_post_custom($post->ID);
-	// 	$code = $custom['code'][0];
-	// 	?><!--<input name="code" value="<?php //echo $code ?>" />--><?php
-	// }
+	function date_callback() {
+		global $post;
+		$custom = get_post_custom($post->ID);
+		$date = $custom['date'][0];
+		?><input name="date" value="<?php echo $date ?>" /><?php
+	}
 
-	// function desc_callback() {
-	// 	global $post;
-	// 	$custom = get_post_custom($post->ID);
-	// 	$desc = $custom['desc'][0];
-	// 	?><!--<textarea name="desc" rows="4" cols="60"><?php //echo $desc; ?></textarea>--><?php
-	// }
+	function client_callback() {
+		global $post;
+		$custom = get_post_custom($post->ID);
+		$client = $custom['client'][0];
+		?><input name="client" value="<?php echo $client ?>" /><?php
+	}
 
-	// function unit_callback() {
-	// 	global $post;
-	// 	$custom = get_post_custom($post->ID);
-	// 	$selectUnit = $custom['unit'][0];
-	// 	$args = array('post_type' => 'units', 'fields' => 'ids', 'numberposts' => '-1');
-	// 	$units = get_posts($args);
-	// 	echo '<select name="unit" id="unit">';
-	// 	echo '<option value="">--Unit--</option>';
-	// 	foreach ($units as $unit => $ID) {
-	// 		$title = get_the_title($ID);
-	// 		$search = array(" ","&amp;","&",".");
-	// 		$slug = ( str_replace($search,"-",strtolower($title)) );
-	// 		$selected = ($selectUnit == $slug) ? "selected='selected'" : "";
-			
-	// 		echo "<option value=" . $slug . " " . $selected . ">" . $title . "</option>";
-	// 	}
-	// 	echo '</select>';
-	// }
-
-	// add_action('save_post', 'save_fund_details');
-
-	// function save_fund_details() {
-	// 	global $post;
-	// 	if (get_post_type($post) == 'funds') {
-	// 		update_post_meta($post->ID, 'short', $_POST['short']);
-	// 		update_post_meta($post->ID, 'code', $_POST['code']);
-	// 		update_post_meta($post->ID, 'desc', $_POST['desc']);
-	// 		update_post_meta($post->ID, 'unit', $_POST['unit']);
-	// 	}
-	// }
+	function save_video_details() {
+		global $post;
+		if (get_post_type($post) == 'videos') {
+			update_post_meta($post->ID, 'url', $_POST['url']);
+			update_post_meta($post->ID, 'date', $_POST['date']);
+			update_post_meta($post->ID, 'client', $_POST['client']);
+		}
+	}
 
 	
 endif;
