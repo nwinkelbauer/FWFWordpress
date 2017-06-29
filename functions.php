@@ -67,9 +67,8 @@ function blog_admin_init() {
 }
 
 
-
 require( 'setup/class.custom-post-type-videos.php' );
 require( 'setup/class.custom-page-templates.php' );
-
+require( 'setup/class.custom-menu-json.php' );
 
 ?>
