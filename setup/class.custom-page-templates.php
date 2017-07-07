@@ -14,8 +14,8 @@ function fwf_add_meta_boxes_page() {
     if ( 'templates/page_home.php' == get_post_meta( $post->ID, '_wp_page_template', true ) ) {
         add_meta_box( 'logo', 'Logo (PNG)', 'fwf_logo_meta_box_callback', 'page', 'side', 'default' );
     }
-    add_meta_box( 'video', 'Vimeo Background ID (optional)', 'fwf_video_meta_box_callback', 'page', 'side', 'default' );
-    add_meta_box( 'mobile', 'Mobile Background (optional)', 'fwf_mobile_meta_box_callback', 'page', 'side', 'low' );
+    add_meta_box( 'video', 'Video Background (optional)', 'fwf_video_meta_box_callback', 'page', 'side', 'default' );
+    //add_meta_box( 'mobile', 'Mobile Background (optional)', 'fwf_mobile_meta_box_callback', 'page', 'side', 'low' );
 }
 
 /*Change Meta Box visibility according to Page Template*/
@@ -61,10 +61,50 @@ function fwf_contact_meta_box_callback() {
 }
 
 function fwf_video_meta_box_callback() {
+	wp_register_script( 'meta-box-video_js', get_stylesheet_directory_uri() . '/setup/js/meta-box-video.js', false, '1.0.0' );
+    wp_enqueue_script( 'meta-box-video_js' );
+
 	global $post;
-	$custom = get_post_custom($post->ID);
-	$video = $custom['video'][0];
-	?><input name="video" value="<?php echo $video ?>" /><?php
+
+	// Get WordPress' media upload URL
+	$upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
+
+	// See if there's a media id already saved as post meta
+	$video_id = get_post_meta( $post->ID, 'video-id', true );
+
+	// Get the image src
+	$video_src = wp_get_attachment_url( $video_id );
+
+	// For convenience, see if the array is valid
+	// $video_img = is_array( $video_src );
+	// print_r($video_src)
+	?>
+
+	<!-- Your image container, which can be manipulated with js -->
+	<div class="video-container">
+	    <?php if ( $video_src ) : ?>
+	        <img src="<?php echo $video_src ?>" alt="" style="max-width:100%;" />
+	    <?php endif; ?>
+	</div>
+
+	<?php if ( $video_src ) : ?>
+        <p><?php echo $video_src ?></p>
+    <?php endif; ?>
+
+	<!-- Your add & remove image links -->
+	<p class="hide-if-no-js">
+	    <a class="upload-video <?php if ( $video_src  ) { echo 'hidden'; } ?>" 
+	       href="<?php echo $upload_link ?>">
+	        <?php _e('Set video image') ?>
+	    </a>
+	    <a class="delete-video <?php if ( ! $video_src  ) { echo 'hidden'; } ?>" 
+	      href="#">
+	        <?php _e('Remove video') ?>
+	    </a>
+	</p>
+
+	<!-- A hidden input to set and post the chosen image id -->
+	<input class="video-id" name="video-id" type="hidden" value="<?php echo esc_attr( $video_id ); ?>" /> <?php
 }
 
 function fwf_mobile_meta_box_callback() {
@@ -158,7 +198,7 @@ function fwf_save_meta_box_page_details() {
 		update_post_meta($post->ID, 'category', $_POST['category']);
 		update_post_meta($post->ID, 'contact-phone', $_POST['contact-phone']);
 		update_post_meta($post->ID, 'contact-email', $_POST['contact-email']);
-		update_post_meta($post->ID, 'video', $_POST['video']);
+		update_post_meta($post->ID, 'video-id', $_POST['video-id']);
 		update_post_meta($post->ID, 'mobile-id', $_POST['mobile-id']);
 		update_post_meta($post->ID, 'logo-id', $_POST['logo-id']);
 	}

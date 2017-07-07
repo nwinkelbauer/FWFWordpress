@@ -37,6 +37,15 @@ add_action( 'rest_api_init', function() {
 } );
 
 add_action( 'rest_api_init', function() {
+    register_rest_field( 'page', 'video_image_url', array(
+        'get_callback' => function( $object, $field_name, $request ) {
+            $custom = get_post_custom( $object->ID );
+            return wp_get_attachment_url($custom['video-id'][0]);
+        }
+    ) );
+} );
+
+add_action( 'rest_api_init', function() {
     register_rest_field( 'videos', 'category_slugs', array(
         'get_callback' => function( $object, $field_name, $request ) {
             $slugs = array();
