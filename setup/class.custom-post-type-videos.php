@@ -23,12 +23,16 @@ if ( ! post_type_exists( 'videos' ) ):
 
 		$args = array(
 			'labels' => $labels,
-			'public' => false,
-			'publicly_queryable' => false,
+			'public' => true,
+			'publicly_queryable' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
+			'query_var' => true,
 			'taxonomies' => array('category'), //'post_tag' for tags
 			'rewrite' => array('slug' => 'videos', 'with_front' => false),
+			'show_in_rest' => true,
+    		'rest_base' => 'videos',
+    		'rest_controller_class' => 'WP_REST_Posts_Controller',
 			'supports' => array( 'title' , 'editor' , 'thumbnail' )
 		);
 
