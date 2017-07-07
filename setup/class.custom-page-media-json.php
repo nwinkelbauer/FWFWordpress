@@ -76,4 +76,13 @@ add_action( 'rest_api_init', function() {
     ) );
 } );
 
+add_action( 'rest_api_init', function() {
+    register_rest_field( 'post', 'featured_image_url', array(
+        'get_callback' => function( $object, $field_name, $request ) {
+            $thumbnail_id = get_post_thumbnail_id( $object->ID );
+            return wp_get_attachment_image_src($thumbnail_id, 'medium');
+        }
+    ) );
+} );
+
 ?>
