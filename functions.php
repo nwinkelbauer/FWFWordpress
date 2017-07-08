@@ -6,6 +6,8 @@ add_action( 'wp_before_admin_bar_render', 'fwf_admin_bar_render' );
 add_action( 'admin_menu', 'fwf_change_post_label' );
 add_action( 'init', 'fwf_change_post_object' );
 add_action('admin_init', 'blog_admin_init');
+// add_filter('excerpt_more', 'new_excerpt_more');
+// add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 //enqueues style of parent
 function fwf_enqueue_styles() {
@@ -65,6 +67,18 @@ function blog_admin_init() {
 	remove_meta_box( 'categorydiv', 'post', 'side' );
 	remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
 }
+
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+    return;
+}
+
+function modify_read_more_link() {
+    return;
+}
+
+
+
 
 
 require( 'setup/class.custom-post-type-videos.php' );
