@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+
 add_action( 'wp_enqueue_scripts', 'fwf_enqueue_styles' );
 add_action( 'admin_menu', 'fwf_remove_admin_menus' );
 add_action('init', 'fwf_remove_comment_support', 100);

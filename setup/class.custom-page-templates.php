@@ -56,8 +56,10 @@ function fwf_contact_meta_box_callback() {
 	$custom = get_post_custom($post->ID);
 	$contact_phone = $custom['contact-phone'][0];
 	$contact_email = $custom['contact-email'][0];
+	$contact_vimeo = $custom['contact-vimeo'][0];
 	?>	Phone:<input name="contact-phone" value="<?php echo $contact_phone ?>" /> </br>
-		Email:<input name="contact-email" value="<?php echo $contact_email ?>" /><?php
+		Email:<input name="contact-email" value="<?php echo $contact_email ?>" /> </br>
+		Vimeo:<input name="contact-vimeo" value="<?php echo $contact_vimeo ?>" /> <?php
 }
 
 function fwf_video_meta_box_callback() {
@@ -198,6 +200,7 @@ function fwf_save_meta_box_page_details() {
 		update_post_meta($post->ID, 'category', $_POST['category']);
 		update_post_meta($post->ID, 'contact-phone', $_POST['contact-phone']);
 		update_post_meta($post->ID, 'contact-email', $_POST['contact-email']);
+		update_post_meta($post->ID, 'contact-vimeo', $_POST['contact-vimeo']);
 		update_post_meta($post->ID, 'video-id', $_POST['video-id']);
 		update_post_meta($post->ID, 'mobile-id', $_POST['mobile-id']);
 		update_post_meta($post->ID, 'logo-id', $_POST['logo-id']);
