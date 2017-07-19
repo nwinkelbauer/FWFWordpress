@@ -13,6 +13,7 @@ function fwf_add_meta_boxes_page() {
     }
     if ( 'templates/page_home.php' == get_post_meta( $post->ID, '_wp_page_template', true ) ) {
         add_meta_box( 'logo', 'Logo (PNG)', 'fwf_logo_meta_box_callback', 'page', 'side', 'default' );
+        add_meta_box( 'gradient', 'Homepage Gradient', 'fwf_gradient_meta_box_callback', 'page', 'side', 'default' );   
     }
     add_meta_box( 'video', 'Video Background (optional)', 'fwf_video_meta_box_callback', 'page', 'side', 'default' );
     //add_meta_box( 'mobile', 'Mobile Background (optional)', 'fwf_mobile_meta_box_callback', 'page', 'side', 'low' );
@@ -57,9 +58,21 @@ function fwf_contact_meta_box_callback() {
 	$contact_phone = $custom['contact-phone'][0];
 	$contact_email = $custom['contact-email'][0];
 	$contact_vimeo = $custom['contact-vimeo'][0];
+	$contact_address1 = $custom['contact-address1'][0];
+	$contact_address2 = $custom['contact-address2'][0];
 	?>	Phone:<input name="contact-phone" value="<?php echo $contact_phone ?>" /> </br>
 		Email:<input name="contact-email" value="<?php echo $contact_email ?>" /> </br>
-		Vimeo:<input name="contact-vimeo" value="<?php echo $contact_vimeo ?>" /> <?php
+		Vimeo:<input name="contact-vimeo" value="<?php echo $contact_vimeo ?>" /> </br>
+		Address:<input name="contact-address1" value="<?php echo $contact_address1 ?>" /> </br>
+		<input name="contact-address2" value="<?php echo $contact_address2 ?>" style="margin-left: 4em;" /> <?php
+}
+
+function fwf_gradient_meta_box_callback() {
+	global $post;
+	$custom = get_post_custom($post->ID);
+	$gradient = $custom['gradient'][0];
+	?>	<input name="gradient" value="<?php echo $gradient ?>" /> </br>
+	<p>Enter a value between 0 and 1. Default is 0.4</p> <?php
 }
 
 function fwf_video_meta_box_callback() {
@@ -201,9 +214,12 @@ function fwf_save_meta_box_page_details() {
 		update_post_meta($post->ID, 'contact-phone', $_POST['contact-phone']);
 		update_post_meta($post->ID, 'contact-email', $_POST['contact-email']);
 		update_post_meta($post->ID, 'contact-vimeo', $_POST['contact-vimeo']);
+		update_post_meta($post->ID, 'contact-address1', $_POST['contact-address1']);
+		update_post_meta($post->ID, 'contact-address2', $_POST['contact-address2']);
 		update_post_meta($post->ID, 'video-id', $_POST['video-id']);
 		update_post_meta($post->ID, 'mobile-id', $_POST['mobile-id']);
 		update_post_meta($post->ID, 'logo-id', $_POST['logo-id']);
+		update_post_meta($post->ID, 'gradient', $_POST['gradient']);
 	}
 }
 
