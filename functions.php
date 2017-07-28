@@ -10,6 +10,30 @@ add_action( 'init', 'fwf_change_post_object' );
 add_action('admin_init', 'blog_admin_init');
 // add_filter('excerpt_more', 'new_excerpt_more');
 // add_filter( 'the_content_more_link', 'modify_read_more_link' );
+add_filter( 'twentyseventeen_front_page_sections', 'wpc_custom_front_sections' );
+add_action('init', 'add_to_fwf_theme', 100);
+add_filter('pre_get_posts', 'query_post_type');
+
+
+function query_post_type($query) {
+    if(is_category() || is_tag()) {
+        $post_type = get_query_var('post_type');
+        if($post_type) {
+            $post_type = $post_type;
+        } else {
+            $post_type = array('post','videos'); // replace CPT to your custom post type
+        }
+        $query->set('post_type',$post_type);
+
+    }
+    return $query;
+}
+
+function add_to_fwf_theme() {
+    add_theme_support( 'custom-header', array(
+      'video' => true
+    ));
+}
 
 //enqueues style of parent
 function fwf_enqueue_styles() {
@@ -79,8 +103,14 @@ function modify_read_more_link() {
     return;
 }
 
-
-
+/*
+ * A simple function to control the number of Twenty Seventeen Theme Front Page Sections
+ * Source: wpcolt.com
+ */
+function wpc_custom_front_sections( $num_sections )
+    {
+        return 5; //Change this number to change the number of the sections.
+    }
 
 
 require( 'setup/class.custom-post-type-videos.php' );

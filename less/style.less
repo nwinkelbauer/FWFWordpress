@@ -1,0 +1,185 @@
+@import "bootstrap/bootstrap.less";
+
+html {
+	//margin-top: 0 !important;
+}
+
+header#masthead .navigation-top{
+	// top: 0; 
+	// .wrap {
+	// 	width: 100%;
+ //    	max-width: none;
+ //    	background: rgba(255,255,255,.5);
+	// }
+}
+
+#top-menu {
+	// text-align: right;
+	font-size: 1.7em;
+}
+
+#wp-custom-header-video-button {
+	border-radius: 50%;
+    border: none;
+    z-index: 1;
+    top: 50px;
+}
+
+header#masthead .site-branding {
+	top: 25%;
+	bottom: inherit;
+	text-align: center;
+	.site-branding-text h1.site-title {
+		text-indent: -99999px;
+	}
+	div.logo-header {
+		// position: absolute;
+	 //    top: 25%;
+	    width: 100%;
+	 //    text-align: center;
+    	height: auto;
+     	z-index: 1;
+	    background: rgba(0,0,0,0); /* For browsers that do not support gradients */
+	    background: -webkit-radial-gradient(rgba(0,0,0,.9), rgba(0,0,0,.6), rgba(0,0,0,.0), rgba(0,0,0,0)); /* Safari 5.1-6.0 */
+		background: -o-radial-gradient(rgba(0,0,0,.9), rgba(0,0,0,.6), rgba(0,0,0,.0), rgba(0,0,0,0)); /* For Opera 11.6-12.0 */
+		background: -moz-radial-gradient(rgba(0,0,0,.9), rgba(0,0,0,.6), rgba(0,0,0,.0), rgba(0,0,0,0)); /* For Firefox 3.6-15 */
+		background: radial-gradient(rgba(0,0,0,.9), rgba(0,0,0,.6), rgba(0,0,0,.0), rgba(0,0,0,0)); /* Standard syntax */
+	    img {
+	    	width: 80%;
+	    }
+	}
+	a.custom-logo-link img {
+		max-height: 150px;
+		max-width: 500px;
+	}
+}
+
+header#masthead #wp-custom-header:before {
+	content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,.4);
+    position: absolute;
+    z-index: 1;
+}
+
+article.twentyseventeen-panel .panel-content {
+	position: absolute;
+    top: 30%;
+    /* left: 4em; */
+    width: 100%;
+    padding: 10% 0;
+    .wrap {
+    	padding: 0.75em 2em;
+	     max-width: none; 
+	    width: 100%;
+	    text-align: right;
+	    h2.entry-title {
+	    	color: rgba(255,255,255,0.9);
+    		font-size: 2em;
+	    }
+    }
+}
+
+article.twentyseventeen-panel a.panel-trigger {
+	h2 {
+		text-decoration: none;
+		width: 15em;
+	    position: absolute;
+	    right: 2em;
+	    -webkit-transition: all .5s ease;
+		-moz-transition: all .5s ease;
+		-o-transition: all .5s ease;
+		-ms-transition: all .5s ease;
+		transition: all .5s ease;
+		&:after {
+			content: '';
+			opacity: 0;
+			height: 1em;
+		    width: .5em;
+		    margin-left: 1em;
+		    display: inline-block;
+			background: url(assets/arrow.png) no-repeat center center;
+			-webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+	        -webkit-transition: all .5s ease;
+			-moz-transition: all .5s ease;
+			-o-transition: all .5s ease;
+			-ms-transition: all .5s ease;
+			transition: all .5s ease;
+		}
+	}
+	&:active ,
+	&:hover ,
+	&:focus {
+		h2 {
+			text-decoration: underline;
+			transform: scale(1.1);
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+#video-archive {
+	div.video{
+		padding: 15px;
+		//padding: 0;
+		.videoThumbnail {
+			height: 0;
+			padding-bottom: 70%;
+			width: 100%;
+			background: rgba(0,0,0,.3);
+			background-repeat: no-repeat;
+			background-position: center center;
+			-webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+		}
+		.video-info {
+			position: absolute;
+		    top: 15%;
+		    left: 10%;
+		    right: 10%;
+		    bottom: 15%;
+		    opacity: 0;
+		    -webkit-transition: all .5s ease;
+			-moz-transition: all .5s ease;
+			-o-transition: all .5s ease;
+			-ms-transition: all .5s ease;
+			transition: all .5s ease;
+		    div {
+		    	padding-top: 10%;
+		    	text-align: center;
+		    	color: #000;
+		    }
+		    h3 {
+		    	padding: 0;
+    			margin: 0.2em 0;
+		    }
+		}
+		a:hover ,
+		a:focus ,
+		a:active {
+			.videoThumbnail:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0; 
+				right: 0;
+				background: rgba(255, 255, 255, 0.5);
+			}
+			.video-info {
+				opacity: 1;
+			}
+
+		}
+	}
+}

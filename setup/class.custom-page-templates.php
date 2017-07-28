@@ -13,7 +13,7 @@ function fwf_add_meta_boxes_page() {
     }
     if ( 'templates/page_home.php' == get_post_meta( $post->ID, '_wp_page_template', true ) ) {
         add_meta_box( 'logo', 'Logo (PNG)', 'fwf_logo_meta_box_callback', 'page', 'side', 'default' );
-        add_meta_box( 'gradient', 'Homepage Gradient', 'fwf_gradient_meta_box_callback', 'page', 'side', 'default' );   
+        // add_meta_box( 'gradient', 'Homepage Gradient', 'fwf_gradient_meta_box_callback', 'page', 'side', 'default' );   
     }
     add_meta_box( 'video', 'Video Background (optional)', 'fwf_video_meta_box_callback', 'page', 'side', 'default' );
     //add_meta_box( 'mobile', 'Mobile Background (optional)', 'fwf_mobile_meta_box_callback', 'page', 'side', 'low' );

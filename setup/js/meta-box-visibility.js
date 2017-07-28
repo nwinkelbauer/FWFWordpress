@@ -31,9 +31,9 @@ jQuery(document).ready( function($) {
         $('#pageparentdiv select#parent_id').hide();
 
         //call all the template specific ones
-        if($('#page_template').val() == 'templates/page_home.php') {
-            $('#postdivrich').hide();
-        }
+        // if($('#page_template').val() == 'templates/page_home.php') {
+        //     $('#postdivrich').hide();
+        // }
     }  
 
     

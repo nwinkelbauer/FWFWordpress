@@ -29,7 +29,8 @@ if ( ! post_type_exists( 'videos' ) ):
 			'show_in_menu' => true,
 			'query_var' => true,
 			'taxonomies' => array('category'), //'post_tag' for tags
-			'rewrite' => array('slug' => 'videos', 'with_front' => false),
+			'rewrite' => array('slug' => 'portfolio'),
+			'has_archive' => true,
 			'show_in_rest' => true,
     		'rest_base' => 'videos',
     		'rest_controller_class' => 'WP_REST_Posts_Controller',
