@@ -21,7 +21,7 @@ function query_post_type($query) {
         if($post_type) {
             $post_type = $post_type;
         } else {
-            $post_type = array('post','videos'); // replace CPT to your custom post type
+            $post_type = array('nav_menu_item','post','videos'); // replace CPT to your custom post type
         }
         $query->set('post_type',$post_type);
 
