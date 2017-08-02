@@ -2,7 +2,7 @@
 global $post; ?>
 <div class="wrap">
 <div id="primary" class="content-area">
-<div id="video-page" class="container">
+<div id="video-page">
 <h1><?php echo the_title(); ?></h1>
 <p class="categories"><?php echo the_category(', '); ?></p>
 <hr>

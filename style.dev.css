@@ -689,6 +689,8 @@ header#masthead .site-branding {
   top: 25%;
   bottom: inherit;
   text-align: center;
+  padding: 0;
+  vertical-align: inherit;
 }
 header#masthead .site-branding .site-branding-text h1.site-title {
   text-indent: -99999px;
@@ -714,6 +716,7 @@ header#masthead .site-branding div.logo-header img {
 header#masthead .site-branding a.custom-logo-link img {
   max-height: 150px;
   max-width: 500px;
+  width: 100%;
 }
 header#masthead #wp-custom-header:before {
   content: "";
@@ -835,6 +838,9 @@ article.twentyseventeen-panel a.panel-trigger:focus h2:after {
 #video-archive div.video a:active .video-info {
   opacity: 1;
 }
+#video-page {
+  margin-bottom: 2em;
+}
 #video-page h1 {
   display: inline-block;
   margin-bottom: 0px;
@@ -884,14 +890,14 @@ body.has-sidebar #content #primary {
     width: 500px;
   }
 }
-@media (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 769px) and (max-width: 899px) {
   body.has-sidebar #content #primary {
     width: 400px;
   }
 }
-@media (max-width: 599px) {
+@media screen and (max-width: 768px) {
   body.has-sidebar #content #primary {
-    width: 90%;
+    width: 100%;
   }
 }
 body.has-sidebar #content #primary .container {
@@ -905,14 +911,15 @@ body.has-sidebar #content #primary .container {
 body.has-sidebar #secondary {
   width: 250px;
 }
-@media (min-width: 600px) and (max-width: 899px) {
+@media screen and (min-width: 769px) and (max-width: 899px) {
   body.has-sidebar #secondary {
     width: 200px;
   }
 }
-@media (max-width: 599px) {
+@media screen and (max-width: 768px) {
   body.has-sidebar #secondary {
-    width: 90%;
+    width: 100%;
+    border-top: #bbb 1px solid;
   }
 }
 div.gallery.gallery-columns-3 figure.gallery-item .gallery-icon a {
@@ -998,4 +1005,16 @@ div.entry-content {
   margin-top: 7px;
   position: absolute;
   left: 0;
+}
+.textwidget {
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  article.twentyseventeen-panel a.panel-trigger .panel-content .wrap h2.entry-title {
+    font-size: 1em;
+    right: 1em;
+  }
+  article.twentyseventeen-panel a.panel-trigger .panel-content .wrap h2.entry-title:after {
+    opacity: 1;
+  }
 }

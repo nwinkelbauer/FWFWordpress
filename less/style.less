@@ -40,6 +40,8 @@ header#masthead .site-branding {
 	top: 25%;
 	bottom: inherit;
 	text-align: center;
+	padding: 0;
+	vertical-align: inherit;
 	.site-branding-text h1.site-title {
 		text-indent: -99999px;
 	}
@@ -62,6 +64,7 @@ header#masthead .site-branding {
 	a.custom-logo-link img {
 		max-height: 150px;
 		max-width: 500px;
+		width: 100%;
 	}
 }
 
@@ -196,6 +199,7 @@ article.twentyseventeen-panel a.panel-trigger {
 }
 
 #video-page {
+	margin-bottom: 2em;
 	h1 {
 		display: inline-block;
 		margin-bottom: 0px; 
@@ -229,8 +233,8 @@ article.twentyseventeen-panel a.panel-trigger {
 body.has-sidebar #content #primary {
 	width: 800px;
 	@media @tablet-landscape-only { width: 500px; }   //  (min-width: 900px) and (max-width: 1199px) 
-	@media @tablet-portait-only { width: 400px; }     //  (min-width: 600px) and (max-width: 899px) 
-	@media @phone-only { width: 90%; }              //  (max-width: 599px)    
+	@media screen and (min-width: 769px) and (max-width: 899px) { width: 400px; }     //  (min-width: 600px) and (max-width: 899px)    
+	@media screen and (max-width: 768px) { width: 100%; }
 	.container {
 		width: inherit;
 	}
@@ -240,8 +244,8 @@ body:not(.has-sidebar) #content #primary {
 }
 body.has-sidebar #secondary {
 	width: 250px;
-	@media @tablet-portait-only { width: 200px; }
-	@media @phone-only { width: 90%; } 
+	@media screen and (min-width: 769px) and (max-width: 899px) { width: 200px; }
+	@media screen and (max-width: 768px) { width: 100%; border-top: #bbb 1px solid; } 
 	// @media @phone-only {
 	// 	width: 90%;
 	// 	margin-right: auto;
@@ -334,3 +338,26 @@ div.entry-content {
 	position: absolute;
 	left: 0;
 }
+
+.textwidget {
+	position: relative;
+}
+
+//wordpress goes into mobile naturally
+@media screen and (max-width: 768px) {
+	article.twentyseventeen-panel a.panel-trigger .panel-content .wrap {
+		h2.entry-title {
+			font-size: 1em;
+		    right: 1em;
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+
+
+
+

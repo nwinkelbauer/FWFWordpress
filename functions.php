@@ -44,7 +44,7 @@ function fwf_enqueue_styles() {
 function fwf_remove_admin_menus() {
     remove_menu_page( 'edit-comments.php' );
     //remove_submenu_page( 'themes.php', 'customize.php' );
-    remove_submenu_page( 'themes.php', 'widgets.php' );
+    //remove_submenu_page( 'themes.php', 'widgets.php' );
     //remove_submenu_page( 'themes.php', 'header.php' );
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
@@ -112,10 +112,13 @@ function wpc_custom_front_sections( $num_sections )
         return 5; //Change this number to change the number of the sections.
     }
 
+    
+
 
 require( 'setup/class.custom-post-type-videos.php' );
 require( 'setup/class.custom-page-templates.php' );
 require( 'setup/class.custom-menu-json.php' );
 require( 'setup/class.custom-page-media-json.php' );
+require( 'setup/class.widget-visibility.php' );
 
 ?>
