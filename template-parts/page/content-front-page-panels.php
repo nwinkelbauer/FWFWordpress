@@ -25,8 +25,14 @@ global $twentyseventeencounter;
 			<div class="panel-image-prop" style="padding-top: <?php echo esc_attr( $ratio ); ?>%"></div>
 		</div><!-- .panel-image -->
 
-	<?php endif; ?>
-	<a class="panel-trigger" href="<?php echo get_permalink(); ?>">
+	<?php endif; 
+		$category = get_page_template();
+		$category = (strpos($category, 'page_portfolio.php') !== false) ? true : false;
+		$category = ($category ? get_post_meta($post->ID, 'category', true) : false);
+			$link = ($category ? get_category_link( $category ) : get_permalink());
+
+	?>
+	<a class="panel-trigger" href="<?php echo $link; ?>">
 
 	<div class="panel-content">
 		<div class="wrap">
