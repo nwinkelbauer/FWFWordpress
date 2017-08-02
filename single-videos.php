@@ -17,9 +17,10 @@ if($imgid && $imgid[0]){
     $imgid = $imgid[0];
 
     $hash = json_decode(file_get_contents("https://vimeo.com/api/oembed.json?url=https://vimeo.com/$imgid/?title=0&title=0&byline=0&portrait=0"));
-    echo $hash->html;  
+    echo $hash->html; 
+    echo '</br></br>';  
 }
-echo $post->post_content;
+echo '<p>' . $post->post_content . '</p>';
 ?>
 
 </div>
