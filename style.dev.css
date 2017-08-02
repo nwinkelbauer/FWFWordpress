@@ -692,6 +692,10 @@ header#masthead .navigation-top button.dropdown-toggle {
   z-index: 1;
   top: 50px;
 }
+header#masthead .custom-header .site-branding .wrap {
+  min-height: 250px;
+  padding-top: 50px;
+}
 header#masthead .site-branding {
   top: 25%;
   bottom: inherit;
