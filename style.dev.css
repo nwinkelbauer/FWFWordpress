@@ -676,6 +676,13 @@
     margin-left: 0%;
   }
 }
+header#masthead .navigation-top {
+  z-index: 10;
+}
+header#masthead .navigation-top button.dropdown-toggle {
+  width: 100%;
+  text-align: right;
+}
 #top-menu {
   font-size: 1.7em;
 }
