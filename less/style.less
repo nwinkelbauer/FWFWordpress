@@ -20,6 +20,45 @@ header#masthead .navigation-top{
 		width: 100%;
     	text-align: right;
 	}
+	&.site-nav-fixed-black {
+		text-align: right;
+		bottom: auto;
+	    position: fixed;
+	    left: 0;
+	    right: 0;
+	    top: 0;
+	    width: 100%;
+	    z-index: 7;
+	    background: rgba(0, 0, 0, 1.0);
+	    border-color: rgba(0, 0, 0, 0.8);
+	    ul#menu-top-menu {
+	    	text-align: right;
+	    	li > a {
+	    		color: white;
+	    		&:hover {
+	    			color: rgba(255, 255, 255, 0.5);
+	    		}
+	    	}
+    		ul.sub-menu { 
+	    		background: rgba(0, 0, 0, 1.0);
+	    		border-color: #767676;
+	    		li > a:hover {
+	    			color: rgba(255, 255, 255, 1);
+	    		}
+	    	}
+	    	li:before,
+	    	li:after {
+	    		border-color: transparent transparent #767676;
+	    	}
+	    }
+	    a.menu-scroll-down {
+	    	display: none;
+	    }
+	}
+}
+
+.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
+	top: 32px;
 }
 
 #top-menu {

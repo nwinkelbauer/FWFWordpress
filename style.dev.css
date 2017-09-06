@@ -683,6 +683,44 @@ header#masthead .navigation-top button.dropdown-toggle {
   width: 100%;
   text-align: right;
 }
+header#masthead .navigation-top.site-nav-fixed-black {
+  text-align: right;
+  bottom: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 7;
+  background: #000000;
+  border-color: rgba(0, 0, 0, 0.8);
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu {
+  text-align: right;
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a {
+  color: white;
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu {
+  background: #000000;
+  border-color: #767676;
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu li > a:hover {
+  color: #ffffff;
+}
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:before,
+header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:after {
+  border-color: transparent transparent #767676;
+}
+header#masthead .navigation-top.site-nav-fixed-black a.menu-scroll-down {
+  display: none;
+}
+.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
+  top: 32px;
+}
 #top-menu {
   font-size: 1.7em;
 }
