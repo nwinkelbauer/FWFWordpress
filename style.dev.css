@@ -715,7 +715,20 @@ header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:before,
 header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:after {
   border-color: transparent transparent #767676;
 }
-header#masthead .navigation-top.site-nav-fixed-black a.menu-scroll-down {
+header#masthead .navigation-top.site-nav-fixed {
+  text-align: right;
+  bottom: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 7;
+}
+header#masthead .navigation-top.site-nav-fixed ul#menu-top-menu {
+  text-align: right;
+}
+header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
   display: none;
 }
 .admin-bar header#masthead .navigation-top.site-nav-fixed-black {

@@ -13,6 +13,15 @@ add_action('admin_init', 'blog_admin_init');
 add_filter( 'twentyseventeen_front_page_sections', 'wpc_custom_front_sections' );
 add_action('init', 'add_to_fwf_theme', 100);
 add_filter('pre_get_posts', 'query_post_type');
+add_action('pre_get_posts', 'filter_category_orderby');
+
+function filter_category_orderby( $query ){
+    if( $query->is_category()){
+        $query->set('orderby', 'menu_order');
+        $query->set('order', 'ASC');
+        $query->set( 'posts_per_page', -1 );
+    }
+}
 
 
 function query_post_type($query) {
