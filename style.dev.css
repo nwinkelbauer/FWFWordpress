@@ -676,14 +676,14 @@
     margin-left: 0%;
   }
 }
-header#masthead .navigation-top {
+body.home header#masthead .navigation-top {
   z-index: 10;
 }
-header#masthead .navigation-top button.dropdown-toggle {
+body.home header#masthead .navigation-top button.dropdown-toggle {
   width: 100%;
   text-align: right;
 }
-header#masthead .navigation-top.site-nav-fixed-black {
+body.home header#masthead .navigation-top.site-nav-fixed-black {
   text-align: right;
   bottom: auto;
   position: fixed;
@@ -695,27 +695,27 @@ header#masthead .navigation-top.site-nav-fixed-black {
   background: #000000;
   border-color: rgba(0, 0, 0, 0.8);
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu {
   text-align: right;
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a {
   color: white;
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a:hover {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li > a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu {
   background: #000000;
   border-color: #767676;
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu li > a:hover {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu ul.sub-menu li > a:hover {
   color: #ffffff;
 }
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:before,
-header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:after {
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:before,
+body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:after {
   border-color: transparent transparent #767676;
 }
-header#masthead .navigation-top.site-nav-fixed {
+body.home header#masthead .navigation-top.site-nav-fixed {
   text-align: right;
   bottom: auto;
   position: fixed;
@@ -725,10 +725,10 @@ header#masthead .navigation-top.site-nav-fixed {
   width: 100%;
   z-index: 7;
 }
-header#masthead .navigation-top.site-nav-fixed ul#menu-top-menu {
+body.home header#masthead .navigation-top.site-nav-fixed ul#menu-top-menu {
   text-align: right;
 }
-header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
+body.home header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
   display: none;
 }
 .admin-bar header#masthead .navigation-top.site-nav-fixed-black {
@@ -741,7 +741,7 @@ header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
   border-radius: 50%;
   border: none;
   z-index: 1;
-  top: 50px;
+  top: 130px;
 }
 header#masthead .custom-header .site-branding .wrap {
   min-height: 250px;
