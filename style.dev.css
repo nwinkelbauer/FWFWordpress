@@ -715,6 +715,9 @@ body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu 
 body.home header#masthead .navigation-top.site-nav-fixed-black ul#menu-top-menu li:after {
   border-color: transparent transparent #767676;
 }
+body.home header#masthead .navigation-top.site-nav-fixed-black a.menu-scroll-down {
+  display: none;
+}
 body.home header#masthead .navigation-top.site-nav-fixed {
   text-align: right;
   bottom: auto;
@@ -731,7 +734,7 @@ body.home header#masthead .navigation-top.site-nav-fixed ul#menu-top-menu {
 body.home header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
   display: none;
 }
-.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
+body.home.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
   top: 32px;
 }
 #top-menu {
@@ -741,7 +744,8 @@ body.home header#masthead .navigation-top.site-nav-fixed a.menu-scroll-down {
   border-radius: 50%;
   border: none;
   z-index: 1;
-  top: 130px;
+  top: 100px;
+  position: absolute;
 }
 header#masthead .custom-header .site-branding .wrap {
   min-height: 250px;

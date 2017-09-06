@@ -51,6 +51,9 @@ body.home header#masthead .navigation-top{
 	    		border-color: transparent transparent #767676;
 	    	}
 	    }
+	    a.menu-scroll-down {
+	    	display: none;
+	    }
 	}
 	&.site-nav-fixed {
 		text-align: right;
@@ -70,7 +73,7 @@ body.home header#masthead .navigation-top{
 	}
 }
 
-.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
+body.home.admin-bar header#masthead .navigation-top.site-nav-fixed-black {
 	top: 32px;
 }
 
@@ -83,7 +86,8 @@ body.home header#masthead .navigation-top{
 	border-radius: 50%;
     border: none;
     z-index: 1;
-    top: 130px;
+    top: 100px;
+    position: absolute;
 }
 
 header#masthead .custom-header .site-branding .wrap {
